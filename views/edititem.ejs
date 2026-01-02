@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Todo</title>
 
     <style>
@@ -12,6 +13,8 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+        margin: 0;
+        color: #111827;
       }
 
       .card {
@@ -55,14 +58,11 @@
         border-radius: 5px;
         cursor: pointer;
         font-size: 14px;
-      }
-
-      .save-btn {
         background-color: #2563eb;
         color: #ffffff;
       }
 
-      .save-btn:hover {
+      button:hover {
         background-color: #1d4ed8;
       }
 
@@ -74,6 +74,41 @@
 
       .cancel-btn:hover {
         text-decoration: underline;
+      }
+
+      /* Mobile */
+      @media (max-width: 600px) {
+        .card {
+          width: 100%;
+          margin: 15px;
+        }
+      }
+
+      /* Dark Mode */
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #0f172a;
+          color: #e5e7eb;
+        }
+
+        .card {
+          background-color: #020617;
+          box-shadow: none;
+        }
+
+        input[type="text"] {
+          background-color: #020617;
+          color: #e5e7eb;
+          border-color: #334155;
+        }
+
+        .cancel-btn {
+          color: #9ca3af;
+        }
+
+        button {
+          background-color: #3b82f6;
+        }
       }
     </style>
   </head>
@@ -91,13 +126,13 @@
           name="editTodo"
           id="editTodo"
           value="<%- todo %>"
-          autofocus
           required
+          autofocus
         />
 
         <div class="actions">
           <a href="/" class="cancel-btn">Cancel</a>
-          <button type="submit" class="save-btn">Save</button>
+          <button type="submit">Save</button>
         </div>
       </form>
     </div>
