@@ -1,28 +1,105 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit Todo</title>
 
-<html>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f4f6f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
 
-    <head>
-        <title>Edit <%- todo %></title>
-        <style>
-            a {
-                text-decoration: none;
-                color: black;
-            }
+      .card {
+        background: #ffffff;
+        padding: 24px 30px;
+        border-radius: 8px;
+        width: 400px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
 
-        </style>
-    </head>
+      h1 {
+        margin-bottom: 20px;
+        font-size: 22px;
+        text-align: center;
+      }
 
-    <body>
-        <h1>Edit <%- todo %>:</h1>
-        <form action="/todo/edit/<%= todoIdx %>" method="post">
-            <p>
-                <label for="editTodo">Change to:</label>
-                <input type="hidden" name="_method" value="PUT">
-                <input type="text" name="editTodo" id="editTodo" autofocus placeholder="<%- todo %>" />
-                <input type="submit" value="Save" />
-            </p>
-        </form>
-    </body>
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
 
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+      }
+
+      .actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .save-btn {
+        background-color: #2563eb;
+        color: #ffffff;
+      }
+
+      .save-btn:hover {
+        background-color: #1d4ed8;
+      }
+
+      .cancel-btn {
+        text-decoration: none;
+        color: #555;
+        font-size: 14px;
+      }
+
+      .cancel-btn:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <h1>Edit Todo</h1>
+
+      <form action="/todo/edit/<%= todoIdx %>" method="post">
+        <input type="hidden" name="_method" value="PUT" />
+
+        <label for="editTodo">Update task</label>
+        <input
+          type="text"
+          name="editTodo"
+          id="editTodo"
+          value="<%- todo %>"
+          autofocus
+          required
+        />
+
+        <div class="actions">
+          <a href="/" class="cancel-btn">Cancel</a>
+          <button type="submit" class="save-btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>

@@ -4,12 +4,12 @@ pipeline{
         stage('Code'){
             steps{
                 echo "cloning the code from github"
-                git url: 'https://github.com/YR55/node-todo-cicd.git/', branch: 'master'
+                git url: 'https://github.com/YR55/Node-todo-app.git', branch: 'main'
             }
         }
         stage('Build'){
             steps{
-                sh 'docker build . -t yogeshverma08/node-todo-test:latest'
+                sh 'docker build . -t yogeshverma08/node-app:latest'
             }
             
         }
@@ -19,7 +19,7 @@ pipeline{
                 {
                     
                       sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                      sh 'docker push yogeshverma08/node-todo-test:latest'
+                      sh 'docker push yogeshverma08/node-app:latest'
                 }
             }
             
