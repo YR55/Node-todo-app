@@ -67,6 +67,23 @@ Security checks are enforced **before deployment**, ensuring only trusted artifa
 
 ---
 
+## 📸 Project Screenshots
+
+### 🔹 GitLab CI/CD Pipeline
+![GitLab Pipeline](./Assets/gitlab-ci.png)
+
+---
+
+### 🔹 Application UI (Todo App)
+![Application UI](./Assets/application-ui.png)
+
+---
+
+### 🔹 Docker Containers Running
+![Docker Containers](./Assets/docker-containers.png)
+
+---
+
 ## 🔐 Security-First Design
 
 - Static code analysis prevents insecure coding practices
